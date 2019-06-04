@@ -1,0 +1,49 @@
+body {
+    background:url("https://i.cbc.ca/1.4874904.1540316889!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/735068923.jpg");
+}
+
+.container {
+    align-content: center;
+}
+
+.banner{
+height: 100px;
+width: auto;
+align-content: center;
+}
+
+.display-4{
+    font-size: 45px;
+    align-content: center;
+    text-align: center;
+    color: blanchedalmond;
+    font-family: 'Lobster', cursive;
+    font-family: 'Acme', sans-serif;
+}
+.lead{
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+    color: red;
+    font-family: 'Lobster', cursive;
+    font-family: 'Acme', sans-serif;
+}
+
+.card{
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    padding: 2.25rem;
+    -webkit-box-orient: horizontal;
+}
+
+.img-fluid{
+    height:170px;
+    widows: 170px;
+    padding: 5px;
+}
+.target{
+    width:300px;
+    height: 100px;
+    padding: 0px;
+}

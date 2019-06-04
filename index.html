@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gemstone Game</title>
+    <!--Bootstrap File-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Lobster&display=swap" rel="stylesheet">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!--CSS Style Sheet-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!--Bootstrap Grid Layout-->
+
+    <div class="container-fluid">
+
+        <!-- Jumbotron with Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <div class="jumbotron jumbotron-fluid banner"> -->
+
+                    <h1 class="display-4"><strong>Gemstone Game</strong></h1>
+                    <p class="lead"><em>Click the Stones to Begin!</em></p>
+                <!-- </div> -->
+            </div>
+        </div>
+
+
+        <!-- Target Score -->
+        <div class="row">
+            <div class="target mx-auto card center">
+                <div class="card-body text-center" >
+                    <h3>Target Score</h3>
+                    <h3 id="targetScore">93</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Your Score -->
+        <div class="row">
+            <div class="target mx-auto card center">
+                <div class="card-body text-center">
+                    <h3>Your Score</h3>
+                    <h3 id="userScore">xx</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!---Buttons--Each has an ID-->
+        <div class="row">
+            <div class="col"><button type="button" class="btn btn-secondary" id=gemBtn1><img
+                class="img-fluid"  src="assets/images/gem-1.png"></button></div>
+            <div class="col"><button type="button" class="btn btn-secondary" id=gemBtn2><img
+                class="img-fluid"   src="assets/images/gem-2.png"></button></div>
+            <div class="col"><button type="button" class="btn btn-secondary" id=gemBtn3><img
+                class="img-fluid"   src="assets/images/gem-3.png"></button></div>
+            <div class="col"><button type="button" class="btn btn-secondary" id=gemBtn4><img
+                class="img-fluid"     src="assets/images/gem-4.png"></button></div>
+        </div>
+<br>
+
+<br>        <!--Win - Lose Cards-->
+        <div class="row">
+            <div class="target  mx-auto card center">
+                <div class="card-body text-center">
+                    <h3>Wins</h3>
+                    <h3 id="wins"></h3>
+                </div>
+            </div>
+
+            <div class="target mx-auto card center">
+                <div class="card-body text-center">
+                    <h3>Losses</h3>
+                    <h3 id="losses"></h3>
+                </div>
+            </div>
+        </div>
+
+    </div> <!--closes the container-->
+
+
+    <script>
+
+        $(document).ready(function () {
+            var total = 0;
+            var wins = 0;
+            var losses = 0;
+            var targetScore = Math.floor(Math.random() * 120) + 19;
+            console.log(targetScore);
+            $("#targetScore").text(targetScore);
+            var crystalOne = Math.floor(Math.random() * 12) + 1;
+            console.log(crystalOne);
+            var crystalTwo = Math.floor(Math.random() * 12) + 1;
+            console.log(crystalTwo);
+            var crystalThree = Math.floor(Math.random() * 12) + 1;
+            console.log(crystalThree);
+            var crystalFour = Math.floor(Math.random() * 12) + 1;
+            console.log(crystalFour);
+
+
+            function start() {
+                total = 0;
+                targetScore = Math.floor(Math.random() * 120) + 19;
+                console.log(targetScore);
+                $("#targetScore").text(targetScore);
+                crystalOne = Math.floor(Math.random() * 12) + 1;
+                console.log(crystalOne);
+                crystalTwo = Math.floor(Math.random() * 12) + 1;
+                console.log(crystalTwo);
+                crystalThree = Math.floor(Math.random() * 12) + 1;
+                console.log(crystalThree);
+                crystalFour = Math.floor(Math.random() * 12) + 1;
+                console.log(crystalFour);
+
+
+                $("#userScore").text(total);
+
+            };
+
+            //Gem #1
+
+            $("#gemBtn1").on("click", function () {
+                console.log(crystalOne)
+                total += crystalOne;
+                console.log(total)
+
+                if (total === targetScore) {
+                    wins++;
+                    alert("You Won!");
+                    $("#wins").text(wins);
+
+                    start();
+                } else if (total > targetScore) {
+                    losses++;
+                    alert("You Lose");
+                    $("#losses").text(losses);
+                    start();
+                } else {
+                    $("#userScore").text(total);
+                }
+            });
+
+            start();                             //Calling the start function here
+       
+
+            //Gem #2
+
+            $("#gemBtn2").on("click", function() {
+            console.log(crystalTwo)
+            total += crystalTwo;
+            console.log(total)
+
+            if (total === targetScore) {
+                wins++;
+                alert("You Won!");
+                $("#wins").text(wins);
+
+            start();
+            } else if (total > targetScore) {
+                losses++;
+                alert("You Lose");
+                $("#losses").text(losses);
+                start();
+            } else {
+                $("#userScore").text(total);
+            }
+            });
+
+                                      
+            start()                             //Calling the start function here
+           
+
+            //Gem #3
+
+            $("#gemBtn3").on("click", function() {
+            console.log(crystalThree)
+            total += crystalThree;
+            console.log(total)
+
+            if (total === targetScore) {
+                wins++;
+                alert("You Won!");
+                $("#wins").text(wins);
+
+            start();
+            } else if (total > targetScore) {
+                losses++;
+                alert("You Lose");
+                $("#losses").text(losses);
+                start();
+            } else {
+                $("#userScore").text(total);
+            }
+            });
+
+                                      
+            start()                             //Calling the start function here
+            
+
+            //Gem#4
+
+            $("#gemBtn4").on("click", function() {
+            console.log(crystalFour)
+            total += crystalFour;
+            console.log(total)
+
+            if (total === targetScore) {
+                wins++;
+                alert("You Won!");
+                $("#wins").text(wins);
+
+            start();
+            } else if (total > targetScore) {
+                losses++;
+                alert("You Lose");
+                $("#losses").text(losses);
+                start();
+            } else {
+                $("#userScore").text(total);
+            }
+            });
+
+                                      
+            start()                             //Calling the start function here
+            });                                 //closing tag
+
+    </script>
+
+
+</body>
+
+</html>
